@@ -87,6 +87,12 @@ section h1, section h2 {
     border-radius: 5px;
     text-align: center;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
 .project-card img {
@@ -95,14 +101,26 @@ section h1, section h2 {
     border-radius: 5px;
 }
 
-.project-card a {
+/* Project links styling */
+.project-links {
+    margin-top: 0.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.project-links a {
     color: #2c3e50;
     text-decoration: none;
     font-weight: bold;
+    padding: 0.5rem 1rem;
+    border: 1px solid #2c3e50;
+    border-radius: 5px;
 }
 
-.project-card a:hover {
-    text-decoration: underline;
+.project-links a:hover {
+    background-color: #2c3e50;
+    color: white;
 }
 
 /* Contact form styling */
@@ -124,6 +142,10 @@ form input, form textarea {
     border-radius: 5px;
 }
 
+form input.invalid, form textarea.invalid {
+    border-color: #e74c3c;
+}
+
 form button {
     padding: 0.5rem 1rem;
     background-color: #2c3e50;
@@ -137,6 +159,17 @@ form button:hover {
     background-color: #34495e;
 }
 
+/* Error message styling */
+.error {
+    color: #e74c3c;
+    font-size: 0.9rem;
+    display: none;
+}
+
+.error.active {
+    display: block;
+}
+
 /* Footer styling */
 footer {
     text-align: center;
@@ -145,7 +178,7 @@ footer {
     color: white;
 }
 
-/* Responsive navigation for mobile */
+/* Responsive navigation */
 @media (max-width: 768px) {
     .hamburger {
         display: block;

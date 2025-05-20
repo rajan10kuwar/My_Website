@@ -1,24 +1,24 @@
-<!-- This is the document type declaration, specifying that this is an HTML5 document. -->
+<!-- HTML5 document type -->
 <!DOCTYPE html>
-<!-- The root element of the HTML document, with the language set to English. -->
+<!-- Root element, language set to English -->
 <html lang="en">
 <head>
-    <!-- Specifies the character encoding for the document. -->
+    <!-- Character encoding -->
     <meta charset="UTF-8">
-    <!-- Ensures the page is responsive and scales correctly on different devices. -->
+    <!-- Responsive viewport -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Provides a description of the page for search engines. -->
+    <!-- SEO description -->
     <meta name="description" content="Professional portfolio of Rajan Kuwar, showcasing projects and skills.">
-    <!-- The title of the page, which appears in the browser's title bar or tab. -->
+    <!-- Page title -->
     <title>Rajan Kuwar - Portfolio</title>
-    <!-- Links to an external CSS file for styling. -->
+    <!-- Link to CSS -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- The header section, typically containing the navigation menu. -->
+    <!-- Header with navigation -->
     <header>
         <nav>
-            <!-- Hamburger button for mobile navigation -->
+            <!-- Hamburger button for mobile -->
             <button class="hamburger" aria-label="Toggle menu">
                 <span></span>
                 <span></span>
@@ -33,60 +33,69 @@
             </ul>
         </nav>
     </header>
-    <!-- The main content area of the page. -->
+    <!-- Main content -->
     <main>
-        <!-- The home section, introducing the portfolio. -->
+        <!-- Home section -->
         <section id="home">
             <h1>Welcome to My Portfolio</h1>
             <p>Hi, I'm Rajan Kuwar.</p>
         </section>
-        <!-- The about section, providing information about the portfolio owner. -->
+        <!-- About section -->
         <section id="about">
             <h2>About Me</h2>
             <p>My Introduction</p>
         </section>
-        <!-- The projects section, showcasing the portfolio owner's work. -->
+        <!-- Projects section -->
         <section id="projects">
             <h2>Projects</h2>
-            <!-- A container for the project cards, styled with CSS. -->
+            <!-- Project cards container -->
             <div class="project-grid">
-                <!-- An individual project card. -->
+                <!-- Project card -->
                 <div class="project-card">
-                    <img src="project1.jpg" alt="Project 1">
+                    <img src="https://via.placeholder.com/300x200" alt="Project 1">
                     <h3>Project 1</h3>
-                    <p>A brief description of project 1.</p>
-                    <a href="#">View Project</a>
+                    <p>A web app built with HTML and CSS.</p>
+                    <div class="project-links">
+                        <a href="#" target="_blank">Live Demo</a>
+                        <a href="#" target="_blank">GitHub</a>
+                    </div>
                 </div>
-                <!-- Another project card. -->
+                <!-- Project card -->
                 <div class="project-card">
-                    <img src="project2.jpg" alt="Project 2">
+                    <img src="https://via.placeholder.com/300x200" alt="Project 2">
                     <h3>Project 2</h3>
-                    <p>A brief description of project 2.</p>
-                    <a href="#">View Project</a>
+                    <p>A JavaScript-based game.</p>
+                    <div class="project-links">
+                        <a href="#" target="_blank">Live Demo</a>
+                        <a href="#" target="_blank">GitHub</a>
+                    </div>
                 </div>
                 <!-- Add more project cards as needed -->
             </div>
         </section>
-        <!-- The contact section, providing a way for visitors to get in touch. -->
+        <!-- Contact section -->
         <section id="contact">
             <h2>Contact</h2>
-            <!-- A form for visitors to send a message. -->
-            <form action="#" method="post">
+            <!-- Contact form with error spans -->
+            <form id="contact-form" action="#" method="post" novalidate>
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
+                <span class="error" id="name-error"></span>
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required>
+                <span class="error" id="email-error"></span>
                 <label for="message">Message:</label>
                 <textarea id="message" name="message" required></textarea>
+                <span class="error" id="message-error"></span>
                 <button type="submit">Send</button>
             </form>
         </section>
     </main>
-    <!-- The footer section, typically containing copyright information. -->
+    <!-- Footer -->
     <footer>
         <p>© 2025 Rajan Kuwar. All rights reserved.</p>
     </footer>
-    <!-- Link to JavaScript file -->
+    <!-- Link to JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
