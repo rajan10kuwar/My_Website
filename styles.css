@@ -228,6 +228,24 @@ footer {
     color: white;
 }
 
+/* Social links styling */
+.social-links {
+    margin-top: 0.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.social-links a {
+    color: white;
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+
+.social-links a:hover {
+    color: #34495e;
+}
+
 /* Responsive navigation */
 @media (max-width: 768px) {
     .hamburger {
