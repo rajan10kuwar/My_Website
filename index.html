@@ -18,8 +18,14 @@
     <!-- The header section, typically containing the navigation menu. -->
     <header>
         <nav>
-            <!-- An unordered list for the navigation links. -->
-            <ul>
+            <!-- Hamburger button for mobile navigation -->
+            <button class="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <!-- Navigation links -->
+            <ul class="nav-menu">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#projects">Projects</a></li>
@@ -42,7 +48,7 @@
         <!-- The projects section, showcasing the portfolio owner's work. -->
         <section id="projects">
             <h2>Projects</h2>
-            <!-- A container for the project cards, likely to be styled with CSS. -->
+            <!-- A container for the project cards, styled with CSS. -->
             <div class="project-grid">
                 <!-- An individual project card. -->
                 <div class="project-card">
@@ -80,5 +86,7 @@
     <footer>
         <p>© 2025 Rajan Kuwar. All rights reserved.</p>
     </footer>
+    <!-- Link to JavaScript file -->
+    <script src="script.js"></script>
 </body>
 </html>
