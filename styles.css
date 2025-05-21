@@ -5,17 +5,27 @@
     box-sizing: border-box;
 }
 
+/* Particle background styling */
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: #1c2526;
+}
+
 /* Body styling */
 body {
     font-family: 'Rubik', Arial, sans-serif;
     line-height: 1.6;
-    background: #1c2526;
     color: #ffffff;
 }
 
 /* Header styling */
 header {
-    background: #1c2526;
+    background: rgba(28, 37, 38, 0.8);
     padding: 1.5rem;
     box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
@@ -68,7 +78,7 @@ section {
     padding: 2rem;
     margin: 1rem auto;
     max-width: 1200px;
-    background: #f5f5f5;
+    background: rgba(245, 245, 245, 0.9);
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     animation: fadeIn 1s ease-in;
@@ -249,7 +259,7 @@ form button:hover {
 footer {
     text-align: center;
     padding: 1.5rem;
-    background: #1c2526;
+    background: rgba(28, 37, 38, 0.8);
     color: #ffffff;
 }
 
@@ -281,7 +291,7 @@ footer {
         display: none;
         flex-direction: column;
         width: 100%;
-        background: #1c2526;
+        background: rgba(28, 37, 38, 0.8);
         position: absolute;
         top: 60px;
         left: 0;

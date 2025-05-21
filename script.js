@@ -1,3 +1,25 @@
+/* Initialize particles.js with enhanced shapes */
+particlesJS('particles-js', {
+    particles: {
+        number: { value: 300, density: { enable: true, value_area: 800 } },
+        color: { value: ['#00eaff', '#ff8c00'] }, // Neon blue and orange
+        shape: { 
+            type: ['circle', 'triangle', 'star', 'edge', 'polygon', 'square'], // Added edge and polygon
+            polygon: { nb_sides: 6 } // Hexagons for polygon
+        },
+        opacity: { value: 0.5, random: true },
+        size: { value: 5, random: true, anim: { enable: false } },
+        line_linked: { enable: true, distance: 120, color: '#00eaff', opacity: 0.4, width: 1 },
+        move: { enable: true, speed: 10, direction: 'none', random: true, straight: false, out_mode: 'out', bounce: false }
+    },
+    interactivity: {
+        detect_on: 'canvas',
+        events: { onhover: { enable: true, mode: 'grab' }, onclick: { enable: true, mode: 'push' }, resize: true },
+        modes: { grab: { distance: 140, line_linked: { opacity: 1 } }, push: { particles_nb: 4 } }
+    },
+    retina_detect: true
+});
+
 /* Toggle hamburger menu */
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
@@ -10,17 +32,17 @@ hamburger.addEventListener('click', () => {
 const navLinks = document.querySelectorAll('nav a');
 navLinks.forEach(link => {
     link.addEventListener('click', (e) => {
-        e.preventDefault(); // Stop default jump
-        const targetId = link.getAttribute('href').substring(1); // Get section ID
-        const targetElement = document.getElementById(targetId); // Find section
-        targetElement.scrollIntoView({ behavior: 'smooth' }); // Scroll smoothly
+        e.preventDefault();
+        const targetId = link.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetId);
+        targetElement.scrollIntoView({ behavior: 'smooth' });
     });
 });
 
 /* Contact form validation */
 const form = document.getElementById('contact-form');
 form.addEventListener('submit', (e) => {
-    e.preventDefault(); // Prevent form submission
+    e.preventDefault();
     let isValid = true;
 
     // Validate name
@@ -65,7 +87,7 @@ form.addEventListener('submit', (e) => {
 
     // If valid, simulate form submission
     if (isValid) {
-        alert('Form submitted successfully!'); 
+        alert('Form submitted successfully!');
         form.reset();
     }
 });
