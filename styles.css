@@ -357,3 +357,47 @@ footer {
         height: 250px;
     }
 }
+
+.scroll-arrow {
+    position: fixed; /* Keeps arrows on screen while scrolling */
+    right: 20px; /* Positions them on the right */
+    background: rgba(0, 234, 255, 0.2); /* Neon blue with transparency */
+    border: 2px solid #00eaff; /* Neon blue border */
+    border-radius: 50%; /* Circular shape */
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background 0.3s; /* Smooth hover effect */
+    z-index: 1000; /* Ensures arrows stay above other content */
+}
+
+.scroll-arrow:hover {
+    background: rgba(0, 234, 255, 0.5); /* Brighter on hover */
+}
+
+.scroll-arrow i {
+    color: #ffffff; /* White icons */
+    font-size: 24px;
+}
+
+.top-arrow {
+    top: 20px; /* Position at top of screen */
+}
+
+.bottom-arrow {
+    bottom: 20px; /* Position at bottom of screen */
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .scroll-arrow {
+        width: 40px;
+        height: 40px;
+    }
+    .scroll-arrow i {
+        font-size: 20px;
+    }
+}

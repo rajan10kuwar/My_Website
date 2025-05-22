@@ -4,8 +4,8 @@ particlesJS('particles-js', {
         number: { value: 300, density: { enable: true, value_area: 800 } },
         color: { value: ['#00eaff', '#ff8c00'] }, // Neon blue and orange
         shape: { 
-            type: ['circle', 'triangle', 'star', 'edge', 'polygon', 'square'], // Added edge and polygon
-            polygon: { nb_sides: 6 } // Hexagons for polygon
+            type: ['circle', 'triangle', 'star', 'edge', 'polygon', 'square'],
+            polygon: { nb_sides: 6 }
         },
         opacity: { value: 0.5, random: true },
         size: { value: 5, random: true, anim: { enable: false } },
@@ -90,4 +90,20 @@ form.addEventListener('submit', (e) => {
         alert('Form submitted successfully!');
         form.reset();
     }
+});
+
+// Scroll to bottom when top arrow is clicked
+document.querySelector('.top-arrow').addEventListener('click', () => {
+    window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: 'smooth'
+    });
+});
+
+// Scroll to top when bottom arrow is clicked
+document.querySelector('.bottom-arrow').addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
 });
