@@ -23,20 +23,29 @@ body {
     color: #ffffff;
 }
 
-/* Header styling */
+/* Header styling - Make it fixed at the top */
 header {
     background: rgba(28, 37, 38, 0.8);
     padding: 1.5rem;
     box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    position: fixed; /* Fix header to top */
+    top: 0; /* Align to top edge */
+    left: 0; /* Align to left edge */
+    width: 100%; /* Full width */
+    z-index: 1000; /* Ensure it stays above other content */
 }
 
-/* Navigation styling */
+/* Navigation styling with beautiful box effect */
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
+    background: #2d3436; /* Dark background for box effect */
+    padding: 1rem; /* Inner padding for spacing */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
 }
 
 .nav-menu {
@@ -45,16 +54,62 @@ nav {
     gap: 2rem;
 }
 
+/* Position nav items for description boxes and indicator */
+.nav-menu li {
+    position: relative; /* Allows absolute positioning of description boxes and indicator */
+}
+
 .nav-menu li a {
     color: #ffffff;
     text-decoration: none;
     font-weight: 700;
     transition: color 0.3s;
+    position: relative; /* For positioning the indicator */
+    padding: 0.5rem 1rem; /* Larger clickable area */
+    border-radius: 5px; /* Subtle rounding */
 }
 
+/* Hover effect for nav links */
 .nav-menu li a:hover {
     color: #00eaff;
     text-shadow: 0 0 5px #00eaff;
+}
+
+/* Indicator (small box) for nav items */
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: 0; /* Position under the link */
+    left: 0; /* Start from left */
+    width: 0; /* Initially hidden */
+    height: 2px; /* Thickness of the underline */
+    background: #00eaff; /* Neon blue color */
+    transition: width 0.3s ease; /* Smooth animation */
+}
+
+/* Show indicator on hover and when active */
+.nav-menu a:hover::after,
+.nav-menu li.active a::after {
+    width: 100%; /* Expand to full width */
+}
+
+/* Optional: Subtle background for active item */
+.nav-menu li.active a {
+    background: rgba(0, 234, 255, 0.1); /* Light neon blue highlight */
+}
+
+/* Description box styling */
+.nav-description {
+    position: absolute;
+    top: 100%; /* Appears below the nav item */
+    left: 0;
+    background: rgba(28, 37, 38, 0.9); /* Matches header with transparency */
+    color: #ffffff;
+    padding: 0.5rem;
+    border-radius: 5px; /* Rounded corners */
+    display: none; /* Hidden by default */
+    z-index: 999; /* Stays above other content */
+    white-space: nowrap; /* Prevents text wrapping */
 }
 
 /* Hamburger button styling */
@@ -71,6 +126,11 @@ nav {
     height: 3px;
     background-color: #ffffff;
     margin: 5px 0;
+}
+
+/* Main content - Add padding to prevent overlap with fixed header */
+main {
+    padding-top: 80px; /* Adjust based on header height, ensures content isn't hidden */
 }
 
 /* Section styling */
@@ -348,11 +408,15 @@ footer {
     .nav-menu.active {
         display: flex;
     }
-
+    /* Adjust description boxes for mobile */
+    .nav-description {
+        position: static; /* Flows naturally in mobile menu */
+        margin-top: 0.5rem; /* Spacing below nav item */
+        white-space: normal; /* Allows text wrapping */
+    }
     .skills-grid {
         grid-template-columns: 1fr;
     }
-
     .skill-box {
         height: 250px;
     }

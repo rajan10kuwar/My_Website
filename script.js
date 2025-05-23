@@ -28,14 +28,30 @@ hamburger.addEventListener('click', () => {
     navMenu.classList.toggle('active');
 });
 
-/* Smooth scrolling for nav links */
-const navLinks = document.querySelectorAll('nav a');
+/* Smooth scrolling, description display, and active indicator for nav links */
+const navLinks = document.querySelectorAll('.nav-menu a');
 navLinks.forEach(link => {
     link.addEventListener('click', (e) => {
-        e.preventDefault();
+        e.preventDefault(); // Prevent default link behavior
         const targetId = link.getAttribute('href').substring(1);
         const targetElement = document.getElementById(targetId);
-        targetElement.scrollIntoView({ behavior: 'smooth' });
+        targetElement.scrollIntoView({ behavior: 'smooth' }); // Scroll to section
+
+        // Remove active class from all nav items
+        document.querySelectorAll('.nav-menu li').forEach(li => li.classList.remove('active'));
+        // Add active class to the clicked nav item's parent li
+        link.parentElement.classList.add('active');
+
+        // Hide all description boxes
+        document.querySelectorAll('.nav-description').forEach(desc => desc.style.display = 'none');
+        // Show the corresponding description box
+        const descBox = link.nextElementSibling;
+        if (descBox && descBox.classList.contains('nav-description')) {
+            descBox.style.display = 'block';
+            setTimeout(() => {
+                descBox.style.display = 'none';
+            }, 3000); // Hide after 3 seconds
+        }
     });
 });
 
@@ -107,3 +123,6 @@ document.querySelector('.bottom-arrow').addEventListener('click', () => {
         behavior: 'smooth'
     });
 });
+
+// Set "Home" as active on page load
+document.querySelector('.nav-menu li:first-child').classList.add('active');
