@@ -126,3 +126,27 @@ document.querySelector('.bottom-arrow').addEventListener('click', () => {
 
 // Set "Home" as active on page load
 document.querySelector('.nav-menu li:first-child').classList.add('active');
+
+
+const wheelContainer = document.querySelector('.wheel-container');
+const wheelWrapper = document.querySelector('.wheel-wrapper');
+let rotation = 0;
+let lastScrollY = window.scrollY;
+
+window.addEventListener('scroll', () => {
+  const scrollY = window.scrollY;
+  const delta = scrollY - lastScrollY;
+  
+  // Update rotation based on scroll direction
+  rotation += delta > 0 ? 20 : -20;
+  wheelWrapper.style.transform = `rotate(${rotation}deg)`;
+
+  // Update vertical position
+  const maxTop = window.innerHeight - 40; 
+  const currentTop = parseFloat(wheelContainer.style.top) || window.innerHeight / 2;
+  const newTop = currentTop + delta;
+  const clampedTop = Math.max(0, Math.min(newTop, maxTop));
+  wheelContainer.style.top = `${clampedTop}px`;
+
+  lastScrollY = scrollY;
+});
