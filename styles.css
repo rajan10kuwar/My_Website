@@ -528,3 +528,35 @@ footer {
         font-size: 1.2rem;
     }
 }
+
+.gradient-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 234, 255, 0.2), rgba(255, 140, 0, 0.2));
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Specific styling for the About Me section */
+#about {
+    background: linear-gradient(to bottom, rgba(45, 52, 54, 0.6), rgba(28, 37, 38, 0.6));
+    color: #ffffff;
+    padding: 3rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
+
+/* Ensure heading color consistency */
+#about h2 {
+    color: #00eaff;
+}
+
+/* Enhance paragraph readability */
+#about p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+}
