@@ -151,21 +151,41 @@ window.addEventListener('scroll', () => {
   lastScrollY = scrollY;
 });
 
-const roles = ["Computer Science Student", "Web Developer"]; 
-let currentRoleIndex = 0;
-const roleElement = document.getElementById('role');
 
-function updateRole() {
-    roleElement.style.opacity = 0; // Fade out
+// Initialize Typed.js for dynamic role text
+var typed = new Typed('.typed', {
+    strings: ['Web Developer', 'Computer Science Student', 'Problem Solver'],
+    typeSpeed: 50,
+    backSpeed: 30,
+    loop: true
+});
+
+// Array of greetings
+const greetings = ['Hi there, Welcome!', 'Hola, Bienvenido!', 'Bonjour, Bienvenue!'];
+
+// Get the greeting element
+const greetingElement = document.getElementById('greeting');
+
+// Track current greeting index
+let currentGreetingIndex = 0;
+
+// Function to update greeting with sliding animation
+function updateGreeting() {
+    // Slide out current greeting
+    greetingElement.style.animation = 'slideOutLeft 0.5s ease-in-out forwards';
+    
+    // After slide out, change text and slide in new greeting
     setTimeout(() => {
-        roleElement.textContent = roles[currentRoleIndex];
-        roleElement.style.opacity = 1; // Fade in
-        currentRoleIndex = (currentRoleIndex + 1) % roles.length;
-    }, 500); // Matches 0.5s transition
+        currentGreetingIndex = (currentGreetingIndex + 1) % greetings.length;
+        greetingElement.textContent = greetings[currentGreetingIndex];
+        greetingElement.style.animation = 'slideInRight 0.5s ease-in-out forwards';
+    }, 500); // Wait for slide-out to finish (0.5s)
 }
 
-// Cycle roles every 3 seconds
-setInterval(updateRole, 3000);
+// Initialize with first greeting (slide in immediately)
+greetingElement.textContent = greetings[0];
+greetingElement.style.animation = 'slideInRight 0.5s ease-in-out forwards';
 
-// Initialize with first role
-roleElement.textContent = roles[0];
+// Cycle greetings every 3 seconds
+setInterval(updateGreeting, 3000);
+
