@@ -227,6 +227,27 @@ section h1, section h2 {
     color: #ffffff;
 }
 
+/* Specific styling for the Skills section */
+#skills {
+    background: linear-gradient(135deg, rgba(28, 37, 38, 0.6), rgba(45, 52, 54, 0.6)); /* Semi-transparent gradient */
+    color: #ffffff; /* White text for readability */
+    padding: 3rem; /* Consistent padding */
+    border-radius: 15px; /* Rounded corners for a modern look */
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3); /* Subtle shadow for depth */
+}
+
+/* Ensure heading color consistency */
+#skills h2 {
+    color: #00eaff; /* Matches the neon blue theme */
+}
+
+/* Enhance readability of skill descriptions if any */
+#skills p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.7); 
+}
+
 /* Certificates section styling */
 .certificates-list {
     list-style: none;
@@ -589,4 +610,72 @@ footer {
         transform: translateX(-100%);
         opacity: 0;
     }
+}
+
+#certificates, #projects, #contact {
+    background: linear-gradient(135deg, rgba(28, 37, 38, 0.6), rgba(45, 52, 54, 0.6)); /* Semi-transparent gradient */
+    color: #ffffff; /* White text for readability */
+    padding: 3rem; /* Consistent padding */
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3); /* Subtle shadow for depth */
+}
+
+/* Ensure heading color consistency across all sections */
+#certificates h2, #projects h2, #contact h2 {
+    color: #00eaff; /* Neon blue to match the theme */
+}
+
+/* Enhance readability of text in these sections */
+#certificates p, #projects p, #contact p, #contact label {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.7); /* Optional shadow for better contrast */
+}
+
+/* Adjust form elements in Contact section for visibility */
+#contact form input, #contact form textarea {
+    background: rgba(255, 255, 255, 0.9); /* Slightly opaque white for form fields */
+    color: #2d2d2d; /* Dark text for readability */
+    border: 1px solid #00eaff; /* Neon blue border */
+}
+
+/* Style for project cards to ensure they stand out */
+.project-card {
+    background: rgba(255, 255, 255, 0.9); /* Semi-transparent white for contrast */
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+/* Certificates list styling */
+.certificates-list li {
+    background: rgba(255, 255, 255, 0.9); /* Semi-transparent white for list items */
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.certificates-list h3 {
+    color: #00eaff; /* Neon blue for headings */
+}
+
+.certificates-list p {
+    color: #2d2d2d; /* Dark text for readability */
+}
+
+.certificates-list a {
+    color: #00eaff;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.certificates-list a:hover {
+    color: #ff8c00;
 }
