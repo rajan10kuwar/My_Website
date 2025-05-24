@@ -29,13 +29,23 @@ hamburger.addEventListener('click', () => {
 });
 
 /* Smooth scrolling, description display, and active indicator for nav links */
+const navBar = document.querySelector('header'); // Adjust selector if nav bar is not <header>
+const navBarHeight = navBar.offsetHeight; // Dynamically get nav bar height
 const navLinks = document.querySelectorAll('.nav-menu a');
 navLinks.forEach(link => {
     link.addEventListener('click', (e) => {
         e.preventDefault(); // Prevent default link behavior
         const targetId = link.getAttribute('href').substring(1);
         const targetElement = document.getElementById(targetId);
-        targetElement.scrollIntoView({ behavior: 'smooth' }); // Scroll to section
+        
+        // Calculate the adjusted scroll position
+        const targetPosition = targetElement.offsetTop - navBarHeight;
+        
+        // Scroll to the adjusted position with smooth behavior
+        window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+        });
 
         // Remove active class from all nav items
         document.querySelectorAll('.nav-menu li').forEach(li => li.classList.remove('active'));
@@ -127,30 +137,28 @@ document.querySelector('.bottom-arrow').addEventListener('click', () => {
 // Set "Home" as active on page load
 document.querySelector('.nav-menu li:first-child').classList.add('active');
 
-
 const wheelContainer = document.querySelector('.wheel-container');
 const wheelWrapper = document.querySelector('.wheel-wrapper');
 let rotation = 0;
 let lastScrollY = window.scrollY;
 
 window.addEventListener('scroll', () => {
-  const scrollY = window.scrollY;
-  const delta = scrollY - lastScrollY;
-  
-  // Update rotation based on scroll direction
-  rotation += delta > 0 ? 20 : -20;
-  wheelWrapper.style.transform = `rotate(${rotation}deg)`;
+    const scrollY = window.scrollY;
+    const delta = scrollY - lastScrollY;
+    
+    // Update rotation based on scroll direction
+    rotation += delta > 0 ? 20 : -20;
+    wheelWrapper.style.transform = `rotate(${rotation}deg)`;
 
-  // Update vertical position
-  const maxTop = window.innerHeight - 40; 
-  const currentTop = parseFloat(wheelContainer.style.top) || window.innerHeight / 2;
-  const newTop = currentTop + delta;
-  const clampedTop = Math.max(0, Math.min(newTop, maxTop));
-  wheelContainer.style.top = `${clampedTop}px`;
+    // Update vertical position
+    const maxTop = window.innerHeight - 40; 
+    const currentTop = parseFloat(wheelContainer.style.top) || window.innerHeight / 2;
+    const newTop = currentTop + delta;
+    const clampedTop = Math.max(0, Math.min(newTop, maxTop));
+    wheelContainer.style.top = `${clampedTop}px`;
 
-  lastScrollY = scrollY;
+    lastScrollY = scrollY;
 });
-
 
 // Initialize Typed.js for dynamic role text
 var typed = new Typed('.typed', {
@@ -189,3 +197,56 @@ greetingElement.style.animation = 'slideInRight 0.5s ease-in-out forwards';
 // Cycle greetings every 3 seconds
 setInterval(updateGreeting, 3000);
 
+// Custom star-shaped mouse pointer with orbiting particles
+const mainStar = document.getElementById('main-star');
+const particles = document.querySelectorAll('.star-particle');
+let lastX = 0;
+let lastY = 0;
+let speed = 0;
+
+document.addEventListener('mousemove', (e) => {
+    const x = e.clientX - 15; // Offset to center (half of 30px width/height)
+    const y = e.clientY - 15;
+
+    // Calculate speed
+    speed = Math.sqrt((x - lastX) ** 2 + (y - lastY) ** 2);
+    lastX = x;
+    lastY = y;
+
+    // Update main star position
+    mainStar.style.left = x + 'px';
+    mainStar.style.top = y + 'px';
+
+    // Update orbiting particles
+    particles.forEach((particle, index) => {
+        // Calculate offset for orbiting effect
+        const angle = (index * 120 + Date.now() / 10) % 360; // Unique angle per particle
+        const radius = 20; // Orbit radius
+        const offsetX = radius * Math.cos(angle * Math.PI / 180);
+        const offsetY = radius * Math.sin(angle * Math.PI / 180);
+        particle.style.left = (x + offsetX) + 'px';
+        particle.style.top = (y + offsetY) + 'px';
+
+        // Adjust particle size based on speed
+        const particleSize = 8 + Math.min(speed / 20, 4); // Max size 12px
+        particle.style.width = particleSize + 'px';
+        particle.style.height = particleSize + 'px';
+    });
+
+    // Adjust aura based on speed
+    if (speed > 15) {
+        mainStar.style.boxShadow = '0 0 25px #ff8c00, 0 0 45px rgba(255, 140, 0, 0.7)';
+    } else {
+        mainStar.style.boxShadow = '0 0 20px #00eaff, 0 0 40px rgba(0, 234, 255, 0.6)';
+    }
+});
+
+// Hover effect on links
+document.querySelectorAll('a').forEach(link => {
+    link.addEventListener('mouseenter', () => {
+        mainStar.classList.add('hover');
+    });
+    link.addEventListener('mouseleave', () => {
+        mainStar.classList.remove('hover');
+    });
+});

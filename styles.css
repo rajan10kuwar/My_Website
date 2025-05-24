@@ -629,7 +629,7 @@ footer {
 #certificates p, #projects p, #contact p, #contact label {
     font-size: 1.1rem;
     line-height: 1.8;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.7); /* Optional shadow for better contrast */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
 }
 
 /* Adjust form elements in Contact section for visibility */
@@ -678,4 +678,78 @@ footer {
 
 .certificates-list a:hover {
     color: #ff8c00;
+}
+
+/* Hide default cursor */
+body {
+    cursor: none !important;
+}
+
+/* Main star pointer */
+.star-pointer {
+    position: fixed;
+    width: 30px;
+    height: 30px;
+    background: radial-gradient(circle, #00eaff 30%, transparent 70%); /* Neon blue center */
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%); /* Star shape */
+    pointer-events: none;
+    z-index: 10000;
+    animation: rotateStar 2s linear infinite, pulseAura 1.5s ease-in-out infinite;
+    box-shadow: 0 0 20px #00eaff, 0 0 40px rgba(0, 234, 255, 0.6);
+}
+
+/* Orbiting particles */
+.star-particle {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    background: #ff8c00; /* Orange particles */
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.7;
+}
+
+/* Orbit animations */
+.orbit1 {
+    animation: orbit 1.5s linear infinite;
+}
+.orbit2 {
+    animation: orbit 1.5s linear infinite reverse;
+    animation-delay: 0.5s;
+}
+.orbit3 {
+    animation: orbit 1.5s linear infinite;
+    animation-delay: 1s;
+}
+
+/* Hover effect */
+.star-pointer.hover {
+    transform: scale(1.6);
+    background: radial-gradient(circle, #ff8c00 30%, transparent 70%); /* Orange starburst */
+    box-shadow: 0 0 30px #ff8c00, 0 0 50px rgba(255, 140, 0, 0.8);
+    animation: starburst 0.5s ease-in-out;
+}
+
+/* Keyframes for animations */
+@keyframes rotateStar {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes pulseAura {
+    0% { box-shadow: 0 0 20px #00eaff, 0 0 40px rgba(0, 234, 255, 0.6); }
+    50% { box-shadow: 0 0 30px #00eaff, 0 0 60px rgba(0, 234, 255, 0.8); }
+    100% { box-shadow: 0 0 20px #00eaff, 0 0 40px rgba(0, 234, 255, 0.6); }
+}
+
+@keyframes orbit {
+    0% { transform: translate(0, 0) rotate(0deg) translateX(20px); }
+    100% { transform: translate(0, 0) rotate(360deg) translateX(20px); }
+}
+
+@keyframes starburst {
+    0% { box-shadow: 0 0 30px #ff8c00, 0 0 50px rgba(255, 140, 0, 0.8); }
+    50% { box-shadow: 0 0 40px #ff8c00, 0 0 60px rgba(255, 140, 0, 1), 0 0 10px #ffffff; }
+    100% { box-shadow: 0 0 30px #ff8c00, 0 0 50px rgba(255, 140, 0, 0.8); }
 }
